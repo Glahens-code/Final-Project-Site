@@ -1,0 +1,45 @@
+Bureau of Justice Statistics,,,,,,,,,,,,
+Filename: mlj0016stt08.csv,,,,,,,,,,,,
+"Table 8. Number of deaths of local jail inmates, by cause of death and decedent characteristics, 2000-2016",,,,,,,,,,,,
+"Report title: Mortality in Local Jails, 2000-2016 – Statistical Tables   NCJ 251921",,,,,,,,,,,,
+"Data Source: Bureau of Justice Statistics, Mortality in Correctional Institutions, 2000-2016.",,,,,,,,,,,,
+"Authors: E. Ann Carson, Ph.D., BJS Statistician, and Mary P. Cowhig, former BJS Statistician",,,,,,,,,,,,
+Refer questions to: askbjs@usdoj.gov   202-307-0765,,,,,,,,,,,,
+Date of version: 2/12/2020,,,,,,,,,,,,
+ ,,,,,,,,,,,,
+"Table 8. Number of deaths of local jail inmates, by cause of death and decedent characteristics, 2000-2016",,,,,,,,,,,,
+,,,Illness,,,,,,,,,
+Characteristic,,All causes,Heart disease,Cancer,AIDS-related,Respiratory disease,Liver disease,All other illnesses/a ,Suicide,Drug/alcohol intoxication,Accident,Homicide/b
+,Total,"16,962","3,973",622,591,486,435,"2,556","5,207","1,221",440,389
+Sex,,,,,,,,,,,,
+,Male,"14,866","3,539",567,520,393,395,"2,089","4,743",959,395,385
+,Female,"2,090",434,55,71,93,40,466,463,262,45,4
+Race/ethnicity,,,,,,,,,,,,
+,White/c,"9,236","1,908",285,103,223,235,"1,141","3,693",770,264,147
+,Black/c,"5,130","1,627",253,409,191,94,999,707,256,111,163
+,Hispanic,"2,021",340,70,76,62,97,354,615,162,51,68
+,"Other/c,d",404,83,13,3,7,8,49,176,27,13,9
+Age,,,,,,,,,,,,
+,17 or younger,70,2,0,1,1,0,5,50,5,1,2
+,18-24,"1,553",102,10,12,21,3,133,909,153,44,77
+,25-34,"3,429",396,40,100,66,26,374,"1,631",404,97,100
+,35-44,"4,322",875,90,231,119,81,637,"1,472",361,123,79
+,45-54,"4,480","1,375",201,194,139,217,841,844,237,109,79
+,55 or older,"2,965","1,217",281,50,138,107,562,292,58,65,51
+Legal status,,,,,,,,,,,,
+,Convicted/e,"4,117","1,200",184,154,141,126,688,914,273,123,96
+,Unconvicted/f,"12,649","2,753",436,432,340,309,"1,857","4,272",943,316,286
+Offense,,,,,,,,,,,,
+,Violent,"5,915","1,187",292,150,148,116,730,"2,496",216,117,170
+,Property,"3,295",740,103,185,96,80,555,973,224,74,74
+,Drug,"2,699",680,94,133,102,72,492,526,347,71,45
+,Public order/other/g,"4,256","1,179",117,108,117,154,653,"1,024",397,158,84
+Note: Data may have been revised from previously published statistics. Details may not sum to totals due to missing data. See Methodology.,,,,,,,,,,,,
+"a/Includes other specified illnesses (such as cerebrovascular disease, influenza, and other non-leading natural causes of death) and unspecified illnesses.",,,,,,,,,,,,
+"b/Includes homicides committed by other inmates, incidental to the use of force by staff, and resulting from assaults sustained prior to incarceration. ",,,,,,,,,,,,
+"c/Excludes persons of Hispanic origin (e.g., “white” refers to non-Hispanic whites and “black” refers to non-Hispanic blacks).",,,,,,,,,,,,
+"d/Includes Asians, Native Hawaiians, Other Pacific Islanders, American Indians, Alaska Natives, or persons of two or more races.",,,,,,,,,,,,
+e/Includes inmates who returned on a probation or parole violation. ,,,,,,,,,,,,
+f/Includes inmates whose status was marked as other or was unspecified.,,,,,,,,,,,,
+"g/Public-order offenses include weapons offenses, DUI/DWI, court offenses, commercialized vice, and morals and decency offenses. Other offenses include holds and holds for other jurisdictions and probation and parole violations.",,,,,,,,,,,,
+"Source: Bureau of Justice Statistics, Mortality in Correctional Institutions, 2000-2016.",,,,,,,,,,,,

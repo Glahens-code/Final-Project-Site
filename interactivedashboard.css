@@ -1,0 +1,20 @@
+.Blackline{
+    fill: none;
+    stroke: blue;
+}
+
+.Whiteline{
+    fill: none;
+    stroke: red;
+}
+
+.Hispanicline{
+    fill: none;
+    stroke: green;
+}
+
+
+body{
+    
+background-color: antiquewhite
+}
