@@ -1,4 +1,4 @@
-var PrisonerPromise = d3.csv("UndeathsRace.csv");
+var PrisonerPromise = d3.csv("illDeathsRace.csv");
 
 
 var successFCN = function (inmates)
@@ -12,9 +12,9 @@ var successFCN = function (inmates)
     
 }
 console.log("hello")
-var failFCN = function(penguins)
+var failFCN = function(inmates)
 { 
-console.log("try again", penguins);
+console.log("try again", inmates);
 }
 
 
@@ -44,17 +44,16 @@ var yScale = d3.scaleLinear()
                     d3.max(inmates, function(d){return d.White})])
                 .range([graph.height,0]);
                 
-var svg = d3.select("body")
-            .append("svg")
+var svg2 = d3.select("#PrisIll")
             .attr("width", screen.height)
             .attr("height", screen.width)
-    drawWhiteLines(xScale,yScale,inmates)
-    drawBlackLines(xScale,yScale,inmates)
-    drawHisLines(xScale,yScale,inmates)
+    drawWhiteLines2(xScale,yScale,inmates)
+    drawBlackLines2(xScale,yScale,inmates)
+    drawHisLines2(xScale,yScale,inmates)
    
-   drawAxes(graph,margins,
+   drawAxes2(graph,margins,
                          xScale,yScale)
-   
+   drawLabels2(graph,margins)
     
     ;
 
@@ -69,7 +68,7 @@ var svg = d3.select("body")
 
 
 
-var drawBlackLines= function(xScale, yScale, inmates){
+var drawBlackLines2= function(xScale, yScale, inmates){
     var lineBGenerator = d3.line()
         .x(function(inmates){ 
             console.log( xScale(inmates.Year))
@@ -77,20 +76,20 @@ var drawBlackLines= function(xScale, yScale, inmates){
         .y(function(inmates){ return yScale(inmates.Black);})
     console.log("inmates",inmates)
     
-var svg = d3.select("svg")
+var svg2 = d3.select("svg2")
     
-svg.append("path")
+svg2.append("path")
     .datum(inmates)
-    .attr("class", "Blackline")
+    .attr("class", "Blackline2")
     .attr("d",lineBGenerator)
-    .attr("transfor")
+    
     
 
 }
     
 
 
-var drawWhiteLines= function(xScale, yScale, inmates){
+var drawWhiteLines2= function(xScale, yScale, inmates){
     var lineWGenerator = d3.line()
         .x(function(inmates){ 
             console.log( xScale(inmates.Year))
@@ -98,16 +97,16 @@ var drawWhiteLines= function(xScale, yScale, inmates){
         .y(function(inmates){ return yScale(inmates.White);})
     console.log("inmates",inmates)
     
-var svg = d3.select("svg")
+var svg2 = d3.select("svg2")
 
-svg.append("path")
+svg2.append("path")
    .datum(inmates)
   .attr("class", "Whiteline")
 .attr("d",lineWGenerator);
 
 }
 
-var drawHisLines= function(xScale, yScale, inmates){
+var drawHisLines2= function(xScale, yScale, inmates){
     var lineHGenerator = d3.line()
         .x(function(inmates){ 
             console.log( xScale(inmates.Year))
@@ -118,9 +117,9 @@ var drawHisLines= function(xScale, yScale, inmates){
 
 
 
-var svg = d3.select("svg")
+var svg2 = d3.select("svg2")
     
-svg.append("path")
+svg2.append("path")
    .datum(inmates)
   .attr("class", "Hispanicline")
 .attr("d",lineHGenerator);
@@ -135,14 +134,14 @@ var makeTranslateString = function(x,y)
     return "translate("+x+","+y+")";
 }
 
-var drawAxes = function(graphDim,margins,
+var drawAxes2 = function(graphDim,margins,
                          xScale,yScale)
 {
       var xAxis= d3.axisBottom(xScale);
 
     var yAxis= d3.axisLeft(yScale);
     
-    var axes = d3.select("svg")
+    var axes = d3.select("svg2")
         .append("g")
     axes.append("g")
         .attr("transform","translate("+margins.left+","
@@ -152,13 +151,41 @@ var drawAxes = function(graphDim,margins,
     axes.append("g")
         .attr("transform","translate("+margins.left+","
              +(margins.top)+")")
+       // .attr("tranlate("+5","+6")
         .call(yAxis)
  
 }
 
+var drawLabels2 = function(graphDim,margins)
+{
+    
+    var labels = d3.select("#PrisIll")
+        .append("g")
+        .classed("labels",true)
+    
+     labels.append("text")
+        .text("Years")
+        .classed("label",true)
+        .attr("text-anchor","middle")
+        .attr("x",margins.left+(graphDim.width/2))
+        .attr("y",(graphDim.height + 35)  + margins.top);
 
+    
+    labels.append("g")
+        .attr("transform","translate(20,"+ 
+              (margins.top+(graphDim.height/2))+")")
+        .append("text")
+        .text("Deaths By Illness")
+        .classed("label",true)
+        .attr("text-anchor","middle")
+        .attr("transform","rotate(90)")
+      labels.append("text")
+        .text("Deaths Per Year")
+        .classed("title",true)
+        .attr("text-anchor","middle")
+        .attr("x",margins.left+(graphDim.width/2))
+        .attr("y",margins.top)
+}
 
 
 PrisonerPromise.then(successFCN,failFCN);
-
-
