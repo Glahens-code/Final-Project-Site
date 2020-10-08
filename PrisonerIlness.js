@@ -1,4 +1,4 @@
-var PrisonerPromise = d3.csv("illDeathsRace.csv");
+var PrisonerPromise = d3.csv("IllDeathsRace.csv");
 
 
 var successFCN = function (inmates)
