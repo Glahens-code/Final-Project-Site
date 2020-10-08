@@ -1,0 +1,44 @@
+var innitGraph3= function(inmates){
+
+    //size of screen
+    var screen = {width:800,height:600}
+    //how much space on each side
+    var margins = {left:100,right:20,top:20,bottom:100} 
+
+var graph = 
+        {
+            width:screen.width-margins.left-margins.right,
+            height:screen.height - margins.top-margins.bottom
+        }
+
+    d3.select("#graph3")
+    .attr("width",screen.width)
+    .attr("height",screen.height)
+    
+    var target=  d3.select("#graph3")
+    .append("g")
+    .attr("id","#graph")
+    .attr("transform","translate("+margins.left+","+margins.top+")");
+  
+var xScale = d3.scaleBand()
+                .domain(["<60 Months", "60-120months","120months+"
+                   ,,])
+                .range([
+                   0,graph.width
+                ])
+                .paddingInner(.80)
+
+
+var yScale = d3.scaleLinear()
+                .domain([0,450])
+                .range([graph.height,0]);
+                
+
+    
+    //drawWhiteLines2(xScale,yScale,inmates)
+
+   
+  // drawAxes2(graph,margins,xScale,yScale)
+  // drawLabels2(graph,margins)
+   // drawLegend2(graph,margins)
+    }

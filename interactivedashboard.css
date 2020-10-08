@@ -13,8 +13,81 @@
     stroke: green;
 }
 
+.Blackline2{
+    fill: none;
+    stroke: blue;
+}
 
+.Whiteline2{
+    fill: none;
+    stroke: red;
+}
+
+.Hispanicline2{
+    fill: none;
+    stroke: green;
+}
 body{
     
 background-color: antiquewhite
+}
+
+.BlackPrisoners{
+  
+fill: blue;
+
+}
+
+.WhitePrisoners{
+    
+    fill: red;
+}
+
+.HispanicPrisoners{
+    
+    fill: green;
+}
+.title{
+    
+}
+h1{
+    text-align: center;
+    color: red;
+    border: 5px solid black;
+    
+    
+}
+#unDeaths{
+   border: 10px solid;
+   margin:inherit
+
+  
+   
+    
+}
+
+#PrisIll{
+    border: 10px solid;
+    margin: inherit;
+    width: 800px;
+    height:600px;
+}
+
+#graph3{
+    border: 10px solid;
+    margin: inherit;
+    width: 800px;
+    height:600px;
+}
+
+.label{
+    font-size: 20px
+    
+}
+.title{
+    font-size:  20px
+}
+    
+}
+    
 }

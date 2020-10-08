@@ -45,8 +45,17 @@ var yScale = d3.scaleLinear()
                 .range([graph.height,0]);
                 
 var svg1 = d3.select("#UnDeaths")
-            .attr("width", screen.height)
-            .attr("height", screen.width)
+            .attr("width", screen.width)
+            .attr("height", screen.height)   
+  var target = d3.select("svg")
+    
+    .append("g")
+    .attr("id","#graph")
+    .attr("transform",
+          "translate("+margins.left+","+
+                        margins.top+")");
+                
+
     drawWhiteLines1(xScale,yScale,inmates)
     drawBlackLines1(xScale,yScale,inmates)
     drawHisLines1(xScale,yScale,inmates)
@@ -54,6 +63,7 @@ var svg1 = d3.select("#UnDeaths")
    drawAxes1(graph,margins,
                          xScale,yScale)
    drawLabels1(graph,margins)
+    drawLegend1(graph,margins)
     
     ;
 
@@ -71,12 +81,16 @@ var svg1 = d3.select("#UnDeaths")
 var drawBlackLines1= function(xScale, yScale, inmates){
     var lineBGenerator = d3.line()
         .x(function(inmates){ 
+            console.log( inmates.Year)
             console.log( xScale(inmates.Year))
-            return xScale(inmates.Year);}) 
-        .y(function(inmates){ return yScale(inmates.Black);})
+            return (xScale(inmates.Year)+100);}) 
+        .y(function(inmates){ 
+            console.log(yScale(inmates.Black))
+            return yScale(inmates.Black);})
+    
     console.log("inmates",inmates)
     
-var svg1 = d3.select("svg1")
+var svg1 = d3.select("#UnDeaths")
     
 svg1.append("path")
     .datum(inmates)
@@ -93,16 +107,17 @@ var drawWhiteLines1= function(xScale, yScale, inmates){
     var lineWGenerator = d3.line()
         .x(function(inmates){ 
             console.log( xScale(inmates.Year))
-            return xScale(inmates.Year);}) 
+            return (xScale(inmates.Year)+100);}) 
         .y(function(inmates){ return yScale(inmates.White);})
     console.log("inmates",inmates)
     
-var svg1 = d3.select("svg1")
-
+var svg1 = d3.select("#UnDeaths")
+    console.log(lineWGenerator)
 svg1.append("path")
-   .datum(inmates)
-  .attr("class", "Whiteline1")
-.attr("d",lineWGenerator);
+    .datum(inmates)
+    .attr("class", "Whiteline1")
+    .attr("translate", "translate(0,0)")
+    .attr("d",lineWGenerator);
 
 }
 
@@ -110,14 +125,14 @@ var drawHisLines1= function(xScale, yScale, inmates){
     var lineHGenerator = d3.line()
         .x(function(inmates){ 
             console.log( xScale(inmates.Year))
-            return xScale(inmates.Year);}) 
+            return (xScale(inmates.Year)+100);}) 
         .y(function(inmates){ return yScale(inmates.Hispanic);})
     console.log("inmates",inmates)
     
 
 
 
-var svg1 = d3.select("svg1")
+var svg1 = d3.select("#UnDeaths")
     
 svg1.append("path")
    .datum(inmates)
@@ -188,7 +203,56 @@ var drawLabels1 = function(graphDim,margins)
         .attr("y",margins.top)
 }
 
+var drawLegend1 = function(graphDim,margins)
+{
+    
+ 
+   var categories = [
+       {
+           class:"BlackPrisoners",
+           name:"Black Prisoners"
+       },
+       {
+           class:"WhitePrisoners",
+           name:"White Prisoners"
+       },
+      { class: "HispanicPrisoners",
+        name:   "Hispanics Prisoners"
+      }
+       
+    ]
+var legend = d3.select("#UnDeaths")
+        .append("g")
+        .classed("legend",true)
+        .attr("transform","translate("+
+              (margins.left+ 10) +","+
+             (margins.top+10)+")");
+var entries = legend.selectAll("g")
+            .data(categories)
+            .enter()
+            .append("g")
+            .classed("legendEntry", true)
+.attr("class",function(categories){
+    return categories.class
+})
 
+.attr("transform",function(categories,index)
+              {
+                return "translate(0,"+index*20+")";
+              })
+          
+
+entries.append("rect")
+        .attr("width", 10)
+        .attr("height", 10)
+        
+    
+entries.append("text")
+                .text(function(category){return category.name;})
+                .attr("x",15)
+                .attr("y",10)
+
+}
 
 PrisonerPromise.then(successFCN,failFCN);
 
